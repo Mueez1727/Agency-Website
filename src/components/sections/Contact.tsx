@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 import { Mail, MessageCircle } from 'lucide-react'
-import { mailtoUrl, site, whatsappUrl } from '../../config'
+import { mailtoUrl, site, whatsappDefaultMessage, whatsappUrl } from '../../config'
 import { LinkedInIcon } from '../visuals/SocialIcons'
 import { ContactForm } from '../ui/ContactForm'
 import { Reveal } from '../ui/Reveal'
@@ -24,22 +24,22 @@ export function Contact() {
                 icon={<MessageCircle size={18} />}
                 label="WhatsApp"
                 value={site.phoneDisplay}
-                href={whatsappUrl('Hi ITechDev, I would like to discuss a project.')}
-                note="Message the studio directly for a faster conversation."
+                action="Chat on WhatsApp"
+                href={whatsappUrl(whatsappDefaultMessage)}
               />
               <ContactMethod
                 icon={<Mail size={18} />}
                 label="Email"
                 value={site.email}
+                action="Send us an email"
                 href={mailtoUrl('Project inquiry')}
-                note="Send a brief note about the business and what you want to build."
               />
               <ContactMethod
                 icon={<LinkedInIcon size={18} />}
                 label="LinkedIn"
-                value="ITechDev"
+                value="Mueez Ahmad"
+                action="View LinkedIn Profile"
                 href={site.linkedin}
-                note="A public profile for updates and professional contact."
               />
             </div>
           </Reveal>
@@ -56,21 +56,23 @@ function ContactMethod({
   icon,
   label,
   value,
+  action,
   href,
-  note,
 }: {
   icon: ReactNode
   label: string
   value: string
+  action: string
   href: string
-  note: string
 }) {
+  const external = href.startsWith('http')
+
   return (
     <a
       href={href}
       className="block rounded-3xl border border-line bg-paper p-5 transition hover:border-ink/10 hover:bg-white"
-      target={href.startsWith('http') ? '_blank' : undefined}
-      rel={href.startsWith('http') ? 'noreferrer noopener' : undefined}
+      target={external ? '_blank' : undefined}
+      rel={external ? 'noopener noreferrer' : undefined}
     >
       <div className="flex items-center gap-3">
         <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-white text-accent">
@@ -81,7 +83,7 @@ function ContactMethod({
           <p className="text-sm text-muted">{value}</p>
         </div>
       </div>
-      <p className="mt-3 text-xs text-muted">{note}</p>
+      <p className="mt-3 text-sm font-semibold text-accent">{action}</p>
     </a>
   )
 }

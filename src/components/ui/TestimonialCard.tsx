@@ -14,11 +14,6 @@ export function TestimonialCard({ testimonial, className }: TestimonialCardProps
         className,
       )}
     >
-      {testimonial.isDemo ? (
-        <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.16em] text-muted">
-          Sample testimonial
-        </p>
-      ) : null}
       <blockquote className="flex-1 text-base leading-relaxed text-ink/80 sm:text-lg">
         “{testimonial.quote}”
       </blockquote>

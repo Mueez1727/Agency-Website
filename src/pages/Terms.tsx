@@ -32,7 +32,7 @@ export function Terms() {
           <section>
             <h2 className="text-xl font-semibold text-ink">Contact</h2>
             <p className="mt-3">
-              Questions about these terms can be sent through the contact details on the website once they have been updated from their placeholders.
+              Questions about these terms can be sent to mueezahmad1727@gmail.com.
             </p>
           </section>
         </div>

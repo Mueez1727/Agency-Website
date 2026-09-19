@@ -11,7 +11,7 @@ export function Testimonials() {
           <SectionHeading
             eyebrow="Client experience"
             title="What Our Clients Will Experience"
-            subtitle="These are sample messages that show the kind of feedback we aim to earn. Replace them with genuine client testimonials when they are available."
+            subtitle="Clear communication, practical delivery, and a product that fits the way the business actually works."
           />
         </Reveal>
         <div className="mt-12 grid grid-cols-1 items-stretch gap-4 md:grid-cols-2 lg:grid-cols-3">

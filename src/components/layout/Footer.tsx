@@ -1,32 +1,43 @@
-import type { ReactNode } from 'react'
-import { site } from '../../config'
-import { footerCompany, footerServices, navLinks } from '../../data/nav'
-import { GitHubIcon, InstagramIcon, LinkedInIcon } from '../visuals/SocialIcons'
+import { mailtoUrl, site, whatsappDefaultMessage, whatsappUrl } from '../../config'
+import { footerServices, navLinks } from '../../data/nav'
 import { Logo } from './Logo'
+
+const footerNav = navLinks.map((link) =>
+  link.label === 'Work' ? { ...link, label: 'What We Build' } : link,
+)
 
 export function Footer() {
   return (
     <footer className="border-t border-line-dark bg-ink text-white">
-      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 md:grid-cols-2 lg:grid-cols-5">
-        <div className="lg:col-span-2">
+      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 md:grid-cols-2 lg:grid-cols-4">
+        <div>
           <Logo light />
           <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/60">{site.tagline}</p>
-          <div className="mt-5 flex items-center gap-3">
-            <Social href={site.linkedin} label="ITechDev on LinkedIn">
-              <LinkedInIcon />
-            </Social>
-            <Social href={site.github} label="ITechDev on GitHub">
-              <GitHubIcon />
-            </Social>
-            <Social href={site.instagram} label="ITechDev on Instagram">
-              <InstagramIcon />
-            </Social>
-          </div>
         </div>
 
-        <FooterColumn title="Navigation" links={navLinks} />
+        <FooterColumn title="Navigation" links={footerNav} />
         <FooterColumn title="Services" links={footerServices} />
-        <FooterColumn title="Company" links={footerCompany} />
+
+        <div>
+          <p className="text-sm font-semibold text-white">Contact</p>
+          <ul className="mt-4 space-y-2.5">
+            <li>
+              <a
+                href={whatsappUrl(whatsappDefaultMessage)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-white/60 transition hover:text-white"
+              >
+                {site.phoneDisplay}
+              </a>
+            </li>
+            <li>
+              <a href={mailtoUrl()} className="text-sm text-white/60 transition hover:text-white">
+                {site.email}
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
       <div className="border-t border-white/8">
         <div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-5 text-xs text-white/45 sm:flex-row sm:items-center sm:justify-between sm:px-6">
@@ -58,27 +69,5 @@ function FooterColumn({
         ))}
       </ul>
     </div>
-  )
-}
-
-function Social({
-  href,
-  label,
-  children,
-}: {
-  href: string
-  label: string
-  children: ReactNode
-}) {
-  return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noreferrer noopener"
-      aria-label={label}
-      className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-white/70 transition hover:border-white/25 hover:text-white"
-    >
-      {children}
-    </a>
   )
 }

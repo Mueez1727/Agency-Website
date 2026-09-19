@@ -32,7 +32,7 @@ export function Privacy() {
           <section>
             <h2 className="text-xl font-semibold text-ink">Contact</h2>
             <p className="mt-3">
-              For privacy questions, use the contact details listed on the website once they have been updated from their placeholders.
+              For privacy questions, email mueezahmad1727@gmail.com.
             </p>
           </section>
         </div>
