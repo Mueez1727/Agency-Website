@@ -1,32 +1,32 @@
 import { cn } from '../../lib/cn'
+import type { Testimonial } from '../../data/testimonials'
 
 type TestimonialCardProps = {
-  quote: string
-  attribution?: string
-  placeholder?: boolean
+  testimonial: Testimonial
   className?: string
 }
 
-export function TestimonialCard({
-  quote,
-  attribution = 'Client testimonial',
-  placeholder = true,
-  className,
-}: TestimonialCardProps) {
+export function TestimonialCard({ testimonial, className }: TestimonialCardProps) {
   return (
     <figure
       className={cn(
-        'flex h-full flex-col justify-between rounded-3xl border border-dashed border-line bg-paper p-6',
+        'flex h-full min-h-[22rem] flex-col rounded-3xl border border-line bg-paper p-6 sm:p-7',
         className,
       )}
     >
-      {placeholder ? (
+      {testimonial.isDemo ? (
         <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.16em] text-muted">
-          Placeholder
+          Sample testimonial
         </p>
       ) : null}
-      <blockquote className="text-lg leading-relaxed text-ink/80">“{quote}”</blockquote>
-      <figcaption className="mt-6 text-sm font-medium text-muted">{attribution}</figcaption>
+      <blockquote className="flex-1 text-base leading-relaxed text-ink/80 sm:text-lg">
+        “{testimonial.quote}”
+      </blockquote>
+      <figcaption className="mt-8">
+        <p className="font-semibold tracking-tight text-ink">{testimonial.name}</p>
+        <p className="mt-1 text-sm text-muted">{testimonial.business}</p>
+        <p className="mt-1 text-xs font-medium uppercase tracking-[0.14em] text-accent">{testimonial.category}</p>
+      </figcaption>
     </figure>
   )
 }

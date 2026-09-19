@@ -8,7 +8,7 @@ import { Hero } from '../components/sections/Hero'
 import { Industries } from '../components/sections/Industries'
 import { Process } from '../components/sections/Process'
 import { Services } from '../components/sections/Services'
-import { Technology } from '../components/sections/Technology'
+import { Stats } from '../components/sections/Stats'
 import { Testimonials } from '../components/sections/Testimonials'
 import { TrustStrip } from '../components/sections/TrustStrip'
 import { WhyUs } from '../components/sections/WhyUs'
@@ -23,15 +23,15 @@ export function Home() {
   return (
     <>
       <Hero />
-      <TrustStrip />
+      <Stats />
       <Services />
+      <TrustStrip />
       <Industries />
-      <WhyUs />
       <Work />
+      <WhyUs />
       <Process />
       <CustomSolutions />
       <About />
-      <Technology />
       <Testimonials />
       <FAQ />
       <Contact />

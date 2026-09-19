@@ -10,13 +10,13 @@ export function Services() {
         <Reveal>
           <SectionHeading
             eyebrow="Services"
-            title="What We Build"
+            title="Our Services"
             subtitle="From a simple landing page to a complete business system, we build technology around your actual business needs."
           />
         </Reveal>
-        <div className="mt-12 grid gap-5 md:grid-cols-2">
+        <div className="mt-12 grid grid-cols-1 items-stretch gap-5 md:grid-cols-2 lg:grid-cols-4">
           {services.map((service, index) => (
-            <Reveal key={service.id} delay={Math.min(index, 3) as 0 | 1 | 2 | 3}>
+            <Reveal key={service.id} delay={Math.min(index, 3) as 0 | 1 | 2 | 3} className="h-full">
               <ServiceCard service={service} />
             </Reveal>
           ))}

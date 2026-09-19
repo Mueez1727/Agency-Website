@@ -1,21 +1,7 @@
+import { testimonials } from '../../data/testimonials'
 import { Reveal } from '../ui/Reveal'
 import { SectionHeading } from '../ui/SectionHeading'
 import { TestimonialCard } from '../ui/TestimonialCard'
-
-const placeholders = [
-  {
-    quote: 'Add your real client testimonial here.',
-    attribution: 'Client name, business name',
-  },
-  {
-    quote: 'Replace this placeholder with feedback from a completed project.',
-    attribution: 'Client name, business name',
-  },
-  {
-    quote: 'A short note about communication, delivery, or the finished product can go here.',
-    attribution: 'Client name, business name',
-  },
-]
 
 export function Testimonials() {
   return (
@@ -25,13 +11,13 @@ export function Testimonials() {
           <SectionHeading
             eyebrow="Client experience"
             title="What Our Clients Will Experience"
-            subtitle="Real testimonials will be added here as projects go live. Until then, these cards are clearly marked placeholders so nothing is invented."
+            subtitle="These are sample messages that show the kind of feedback we aim to earn. Replace them with genuine client testimonials when they are available."
           />
         </Reveal>
-        <div className="mt-12 grid gap-4 md:grid-cols-3">
-          {placeholders.map((item, index) => (
-            <Reveal key={item.quote} delay={Math.min(index + 1, 3) as 1 | 2 | 3}>
-              <TestimonialCard quote={item.quote} attribution={item.attribution} />
+        <div className="mt-12 grid grid-cols-1 items-stretch gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {testimonials.map((item, index) => (
+            <Reveal key={item.name} delay={Math.min(index + 1, 3) as 1 | 2 | 3} className="h-full">
+              <TestimonialCard testimonial={item} />
             </Reveal>
           ))}
         </div>

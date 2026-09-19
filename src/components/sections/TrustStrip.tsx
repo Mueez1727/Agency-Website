@@ -8,12 +8,12 @@ export function TrustStrip() {
         <p id="trust-heading" className="text-xs font-semibold uppercase tracking-[0.18em] text-muted">
           Built for real businesses
         </p>
-        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="mt-6 grid grid-cols-1 items-stretch gap-4 sm:grid-cols-2 lg:grid-cols-5">
           {trustItems.map((item, index) => (
-            <Reveal key={item.title} delay={Math.min(index, 4) as 0 | 1 | 2 | 3 | 4}>
-              <div className="rounded-2xl border border-line bg-white p-4">
+            <Reveal key={item.title} delay={Math.min(index, 4) as 0 | 1 | 2 | 3 | 4} className="h-full">
+              <div className="flex h-full flex-col rounded-2xl border border-line bg-white p-4">
                 <h3 className="text-sm font-semibold text-ink">{item.title}</h3>
-                <p className="mt-1 text-sm leading-relaxed text-muted">{item.description}</p>
+                <p className="mt-1 flex-1 text-sm leading-relaxed text-muted">{item.description}</p>
               </div>
             </Reveal>
           ))}

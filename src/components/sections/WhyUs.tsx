@@ -17,11 +17,11 @@ export function WhyUs() {
             subtitle="The work is designed to be clear, practical, and easy to grow with. You stay close to the people building the product."
           />
         </Reveal>
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid grid-cols-1 items-stretch gap-4 md:grid-cols-2 lg:grid-cols-3">
           {whyUs.map((item, index) => {
             const Icon = icons[index]
             return (
-              <Reveal key={item.title} delay={Math.min(index, 3) as 0 | 1 | 2 | 3}>
+              <Reveal key={item.title} delay={Math.min(index, 3) as 0 | 1 | 2 | 3} className="h-full">
                 <FeatureCard
                   title={item.title}
                   description={item.description}

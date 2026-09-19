@@ -9,14 +9,14 @@ export function Work() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <Reveal>
           <SectionHeading
-            eyebrow="Portfolio"
-            title="Selected Work"
-            subtitle="These are concept and demo projects that show the quality, structure, and product thinking ITechDev brings to real client work."
+            eyebrow="Examples"
+            title="What We Build"
+            subtitle="From business websites to complete digital systems, we build solutions around your goals."
           />
         </Reveal>
-        <div className="mt-12 grid gap-5 md:grid-cols-2">
+        <div className="mt-12 grid grid-cols-1 items-stretch gap-5 md:grid-cols-2">
           {projects.map((project, index) => (
-            <Reveal key={project.slug} delay={Math.min(index, 3) as 0 | 1 | 2 | 3}>
+            <Reveal key={project.slug} delay={Math.min(index, 3) as 0 | 1 | 2 | 3} className="h-full">
               <ProjectCard project={project} />
             </Reveal>
           ))}

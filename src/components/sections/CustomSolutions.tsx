@@ -25,7 +25,7 @@ export function CustomSolutions() {
         <Reveal delay={2}>
           <div className="grid grid-cols-2 gap-3">
             {customSolutions.map((item) => (
-              <div key={item} className="rounded-2xl border border-white/8 bg-white/5 px-4 py-3 text-sm text-white/80">
+              <div key={item} className="flex min-h-[52px] items-center rounded-2xl border border-white/8 bg-white/5 px-4 py-3 text-sm text-white/80">
                 {item}
               </div>
             ))}
